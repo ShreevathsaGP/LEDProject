@@ -22,7 +22,7 @@ void setup() {
 void loop() {
     unsigned long current_time = millis();
     if (current_time - previous_time > DELAY) {
-        std::cout << "timing works" << endl;
+        Serial.print("timing works");
         previous_time = current_time;
         if (!state) {
             state = true;
