@@ -14,6 +14,7 @@ bool state = false; // false => turning on, true = turning off
 
 // setup strip
 void setup() {
+    Serial.begin(9600);
     FastLED.addLeds<LED_BRAND, LED_PIN, GRB>(strip, NO_LEDS);
     FastLED.setBrightness(50);
 }
