@@ -25,11 +25,13 @@ void loop() {
         Serial.print("timing works");
         previous_time = current_time;
         if (!state) {
+            Serial.print("on");
             state = true;
             strip[current_index] = CRGB::Red;
             FastLed.show();
 
         } else {
+            Serial.print("off");
             // increment index
             strip[current_index] = CRGB::Black;
             current_index += 1;
