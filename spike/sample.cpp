@@ -33,6 +33,7 @@ void loop() {
 
         } else {
             Serial.print("off");
+            state = false;
             // increment index
             strip[current_index] = CRGB::Black;
             current_index += 1;
