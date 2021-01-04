@@ -4,7 +4,7 @@
 #define NO_LEDS 224
 #define LED_PIN 7
 #define LED_BRAND WS2812B
-#define DELAY 200
+#define DELAY 20
 
 // declarations
 CRGB strip[NO_LEDS];
