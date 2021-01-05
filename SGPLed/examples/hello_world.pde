@@ -99,6 +99,7 @@ void setup() {
 void loop() {
   current_time = millis();
   if (current_time - previous_time > DELAY) {
+    previous_time = current_time; 
     // check for instruction update 
     if (current_state.instruction_index > (int)current_state.current_instruction.length() - 1) {
       if (current_state.instructions.empty()) {
