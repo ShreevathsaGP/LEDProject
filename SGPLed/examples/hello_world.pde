@@ -79,7 +79,7 @@ void render() {
     }
   }
   FastLed.show();
-  shift(matrix);
+  shift(current_state.board);
 
   fast_index = 0;
 }
@@ -103,7 +103,7 @@ void loop() {
   if (current_time - previous_time > DELAY) {
     previous_time = current_time; 
     // check for instruction update 
-    if (current_state.instruction_index > (int)current_state.current_instruction.length() - 1) {
+    if (current_state.instruction_index > (int)current_state.current_instruction.count() - 1) {
       if (current_state.instructions.empty()) {
         return;
       }
@@ -113,12 +113,12 @@ void loop() {
     }
 
     // execute the instructions
-    for (int i = current_state.instruction_index; i < current_state.current_instruction.length(); i++) {
+    for (int i = current_state.instruction_index; i < current_state.current_instruction.count(); i++) {
       current_state.instruction_index += 1;
       if (current_state.current_instruction[i] == ' ') {break;}
       current_state.board[(current_state.current_instruction[i]) - '0'][no_columns - 1] = Colours::Red;
     }
 
-    render(current_state);
+    render();
   }
 }
