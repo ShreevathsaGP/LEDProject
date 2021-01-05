@@ -3,7 +3,7 @@
 
 //------ INCLUDES ----------------------------------------------------------------------------------------------------
 
-#include <queue.h>
+#include <Queue.h>
 #include <string.h>
 #include <unordered_map.h>
 
@@ -31,7 +31,7 @@ enum Processes {
 struct State {
     Colours board[no_rows][no_columns];
     Processes current_process;
-    std::queue<std::string> instructions;
+    std::Queue<std::string> instructions;
     std::string current_instruction;
     int instruction_index;
 };
