@@ -65,6 +65,7 @@ void render() {
           strip[fast_index] = CRGB::Red;
         }
         fast_index += 1;
+        orientation = Right;
       }
     } else {
       // left --> right
@@ -73,6 +74,7 @@ void render() {
           strip[fast_index] = CRGB::Red;
         }
         fast_index += 1;
+        orientation = Left;
       }
     }
   }
