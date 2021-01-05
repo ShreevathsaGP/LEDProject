@@ -9,7 +9,7 @@
 #include <string>
 #include <unordered_map>
 
-/* #include <Arduino.h> */
+#include <Arduino.h>
 
 //------ INCLUDES ----------------------------------------------------------------------------------------------------
 
