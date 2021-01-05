@@ -7,7 +7,7 @@
 
 //------ GLOBALS -----------------------------------------------------------------------------------------------------
 
-CRGB strip[no_columns * no_rows]
+CRGB strip[no_columns * no_rows];
 
 unsigned long previous_time = 0;
 unsigned long current_time = 0;
@@ -16,9 +16,9 @@ Writer writer = Writer(current_state);
 Colours temp;
 int fast_index = 0;
 enum Orientation {
-  Left, Right;
-}
-Orientation orientation ;
+  Left, Right
+};
+Orientation orientation;
 
 //------ GLOBALS -----------------------------------------------------------------------------------------------------
 
