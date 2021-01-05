@@ -24,7 +24,7 @@ void shift(Colours matrix[no_rows][no_columns]) {
 //------ BOARD ----------------------------------
 //------ CPP ------------------------------------
 bool running = true;
-void show(Colours matrix[no_rows][no_columns]) {
+void show(const Colours matrix[no_rows][no_columns]) {
     for (int i = 0; i < no_rows; i++) {
         cout << "[ ";
         for (int j = 0; j < no_columns; j++) {
@@ -63,7 +63,7 @@ void render(State &current_state) {
 void setup() {
     current_state.instruction_index = 0;
     current_state.current_instruction.clear();
-    writer.write("abcd");
+    writer.write("mark zuckerburg");
 }
 
 void loop() {
@@ -81,6 +81,7 @@ void loop() {
     for (int i = current_state.instruction_index; i < current_state.current_instruction.length(); i++) {
         current_state.instruction_index += 1;
         if (current_state.current_instruction[i] == ' ') {break;}
+        /* cout << current_state.current_instruction[i] - '0'; */
         current_state.board[(current_state.current_instruction[i]) - '0'][no_columns - 1] = Red;
     }
 

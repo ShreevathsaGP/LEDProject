@@ -8,8 +8,8 @@
 #include <unordered_map>
 
 // matrix specs
-const int no_rows = 8;
-const int no_columns = 28;
+const int no_rows = 8; // SHOULD NOT BE MORE THAN 10 [Writing Lib Will Fail]
+const int no_columns = 110;
 
 // colours
 enum Colours {

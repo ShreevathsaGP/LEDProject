@@ -23,7 +23,13 @@ class Writer {
         State &current_state;
         std::string sample_string;
         int letter_width;
+        int temp;
         int middle;
+        int no_flat;
+
+        int top;
+        int bottom;
+        int constraint;
         
         // letter-mappings (column wise operations)
         std::unordered_map<char, std::string> letter_map;
