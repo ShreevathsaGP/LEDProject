@@ -1,0 +1,78 @@
+#ifndef SGPLib_H
+#define SGPLib_H
+
+//------ INCLUDES ----------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <string>
+#include <unordered_map>
+
+//------ INCLUDES ----------------------------------------------------------------------------------------------------
+
+//------ GLOBALS -----------------------------------------------------------------------------------------------------
+
+// matrix specs
+const int no_rows = 8; // SHOULD NOT BE MORE THAN 10 [Writing Lib Will Fail]
+const int no_columns = 28;
+
+// colours
+enum Colours {
+    Black, Red, Green, Blue, Yellow, Orange, Purple, Pink
+};
+
+// processes
+enum Processes {
+    Writing, Tetris, Pong, Watch, Nothing
+};
+
+// led-matrix state
+struct State {
+    Colours board[no_rows][no_columns];
+    Processes current_process;
+    std::queue<std::string> instructions;
+    std::string current_instruction;
+    int instruction_index;
+};
+
+//------ GLOBALS -----------------------------------------------------------------------------------------------------
+
+//------ WRITING -----------------------------------------------------------------------------------------------------
+
+#define NO_SPACES 2
+class Writer {
+    public:
+        // constructor
+        Writer(State &in_state);
+
+        // write animation
+        void write(std::string in_string);
+
+        // space (between letters)
+        void add_space(int no, std::string &in_string);
+
+
+    private:
+        // initialize letter-mappings
+        bool init_mappings();
+        
+        // variables
+        State &current_state;
+        std::string sample_string;
+        int letter_width;
+        int temp;
+        int middle;
+        int no_flat;
+
+        int top;
+        int bottom;
+        int constraint;
+        
+        // letter-mappings (column wise operations)
+        std::unordered_map<char, std::string> letter_map;
+};
+
+//------ WRITING -----------------------------------------------------------------------------------------------------
+
+#endif // SGPLib_H
