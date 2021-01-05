@@ -39,26 +39,6 @@ void render(State &current_state) {
     shift(current_state.board);
 }
 //------ CPP ------------------------------------
-//------ ARDUINO --------------------------------
-/* void show(Colours matrix[no_rows][no_columns]) { */
-/*     for (int i = 0; i < no_rows; i++) { */
-/*         Serial.print("[ ") */
-/*         for (int j = 0; j < no_columns; j++) { */
-/*             Serial.print(matrix[i][j]); */
-/*             Serial.pint(" "); */
-/*         } */
-/*         Serial.print("]"); */
-/*         Serial.prin("\n"); */
-/*     } */
-/* } */
-
-/* void render() { */
-
-/*     shift(matrix); */
-/* } */
-//------ ARDUINO --------------------------------
-
-
 
 void setup() {
     current_state.instruction_index = 0;

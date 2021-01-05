@@ -1,8 +1,8 @@
 #ifndef WRITING_H
 #define WRITING_H
-
 #include "globals.h"
 
+#define NO_SPACES 2
 class Writer {
     public:
         // constructor
@@ -33,8 +33,6 @@ class Writer {
         
         // letter-mappings (column wise operations)
         std::unordered_map<char, std::string> letter_map;
-        
-
 };
 
 #endif // WRITING_H

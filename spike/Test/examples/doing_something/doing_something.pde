@@ -1,6 +1,6 @@
 #include <Test.h>
 
-// Doing Something
+/ Doing Something
 // by John Doe <http://www.yourwebsite.com>
 
 // Demostrates how to do something with the Test library

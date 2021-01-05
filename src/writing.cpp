@@ -1,6 +1,5 @@
 #include "globals.h"
 #include "writing.h"
-#define NO_SPACES 2
 
 using namespace std;
 
