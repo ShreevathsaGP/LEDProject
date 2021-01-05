@@ -3,10 +3,9 @@
 
 //------ INCLUDES ----------------------------------------------------------------------------------------------------
 
-#include <vector>
-#include <queue>
-#include <string>
-#include <unordered_map>
+#include <queue.h>
+#include <string.h>
+#include <unordered_map.h>
 
 #include <Arduino.h>
 
