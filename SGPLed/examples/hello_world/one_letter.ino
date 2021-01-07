@@ -7,7 +7,7 @@
 const int no_rows = 8;
 const int no_columns = 28;
 CRGB strip[no_columns * no_rows];
-fast_index = 0;
+int fast_index = 0;
 int local[no_rows][no_columns];
 
 enum Orientation {
@@ -44,7 +44,7 @@ void draw() {
     if (orientation == Left) {
       // left <-- right
       for (int col = no_columns - 1; col > -1; col--) {
-        if (current_state.board[row][col] == Colours::Red) {
+        if (local[row][col] == Colours::Red) {
           strip[fast_index] = CRGB::Red;
         }
         fast_index += 1;
@@ -53,7 +53,7 @@ void draw() {
     } else {
       // left --> right
       for (int col = 0; col < no_columns; col++) {
-        if (current_state.board[row][col] == Colours::Red) {
+        if (local[row][col] == Colours::Red) {
           strip[fast_index] = CRGB::Red;
         }
         fast_index += 1;
