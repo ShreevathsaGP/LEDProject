@@ -13,32 +13,28 @@ enum Orientation {
 };
 enum Colours {
     Black, Red
+};
+
+
+// shift board
+void shift(const Colours matrix[no_rows][no_columns]) {
+  for (int i = 0; i < no_rows; i++) {
+    for (int j = 1; j < no_columns; j++) {
+      temp = matrix[i][j];
+      matrix[i][j - 1] = temp;
+    }
+  }
+
+  for (int j = 1; j < no_rows; j++) {
+    matrix[j][no_columns - 1] = Black;
+  }
 }
 
 // GLOBALS
-CRGB strip[no_columns * no_rows];
+CRGB strip[(no_columns * no_rows)];
 int fast_index = 0;
 int local[no_rows][no_columns];
 Orientation orientation;
-
-
-void setup() {
-    FastLED.addLeds<LED_BRAND, LED_PIN, GRB>(strip, (no_columns * no_rows));
-    FastLED.setBrightness(50);
-
-    for (int i = 2; i < no_rows - 2; i++) {
-        local[i][no_columns - 2] = Colours::Red;
-    }
-
-    for (int i = no_columns - 6; i < no_columns - 2; i++) {
-        local[1][i] = Colours::Red;
-        local[no_rows - 2][i] = Colours::Red;
-    }
-
-    for (int i = 1; i < no_rows - 1; i++) {
-        local[i][no_columns - 7] = Colours::Red;
-    }
-}
 
 // draw the matrix [in actual LED]
 void draw() {
@@ -68,6 +64,25 @@ void draw() {
   fast_index = 0;
 }
 
+void setup() {
+    FastLED.addLeds<LED_BRAND, LED_PIN, GRB>(strip, (no_columns * no_rows));
+    FastLED.setBrightness(50);
+
+    for (int i = 2; i < no_rows - 2; i++) {
+        local[i][no_columns - 2] = Colours::Red;
+    }
+
+    for (int i = no_columns - 6; i < no_columns - 2; i++) {
+        local[1][i] = Colours::Red;
+        local[no_rows - 2][i] = Colours::Red;
+    }
+
+    for (int i = 1; i < no_rows - 1; i++) {
+        local[i][no_columns - 7] = Colours::Red;
+    }
+}
+
 void loop() {
     draw();
+    shift(local);
 }
