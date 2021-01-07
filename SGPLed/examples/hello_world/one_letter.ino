@@ -26,7 +26,7 @@ unsigned long current_time = 0;
 unsigned long previous_time = 0;
 
 // shift board
-void shift(const Colours matrix[no_rows][no_columns]) {
+void shift(Colours matrix[no_rows][no_columns]) {
   for (int i = 0; i < no_rows; i++) {
     for (int j = 1; j < no_columns; j++) {
       temp = matrix[i][j];
