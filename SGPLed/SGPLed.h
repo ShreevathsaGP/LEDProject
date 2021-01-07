@@ -14,8 +14,8 @@
 //------ GLOBALS -----------------------------------------------------------------------------------------------------
 
 // matrix specs 
-const int no_rows = 1; // SHOULD NOT BE MORE THAN 10 [Writing Lib Will Fail]
-const int no_columns = 1;
+const int no_rows = 8; // SHOULD NOT BE MORE THAN 10 [Writing Lib Will Fail]
+const int no_columns = 28;
 
 // colours
 enum Colours {
