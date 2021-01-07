@@ -1,23 +1,26 @@
 #include <FastLED.h>
 
-#define DELAY 30
 #define LED_PIN 7
 #define LED_BRAND WS2812B
 
+// CONSTANTS
 const int no_rows = 8;
 const int no_columns = 28;
-CRGB strip[no_columns * no_rows];
-int fast_index = 0;
-int local[no_rows][no_columns];
 
+// ENUMS
 enum Orientation {
   Left, Right
 };
-Orientation orientation;
-
 enum Colours {
     Black, Red
 }
+
+// GLOBALS
+CRGB strip[no_columns * no_rows];
+int fast_index = 0;
+int local[no_rows][no_columns];
+Orientation orientation;
+
 
 void setup() {
     FastLED.addLeds<LED_BRAND, LED_PIN, GRB>(strip, (no_columns * no_rows));
