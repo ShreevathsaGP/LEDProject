@@ -19,9 +19,7 @@ void shift(Colours matrix[no_rows][no_columns]) {
 
     for (int j = 1; j < no_rows; j++) {
         matrix[j][no_columns - 1] = Black;
-    }
-}
-//------ BOARD ----------------------------------
+    } } //------ BOARD ----------------------------------
 //------ CPP ------------------------------------
 bool running = true;
 void show(const Colours matrix[no_rows][no_columns]) {
@@ -43,7 +41,7 @@ void render(State &current_state) {
 void setup() {
     current_state.instruction_index = 0;
     current_state.current_instruction.clear();
-    writer.write("mark zuckerburg");
+    writer.write("hello");
 }
 
 void loop() {
