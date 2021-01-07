@@ -44,7 +44,7 @@ void shift(Colours matrix[no_rows][no_columns]) {
 // show matrix [in serial output]
 void show(Colours matrix[no_rows][no_columns]) {
   for (int i = 0; i < no_rows; i++) {
-    Serial.print("[ ")
+    Serial.print("[ ");
     for (int j = 0; j < no_columns; j++) {
       Serial.print(matrix[i][j]);
       Serial.print(" ");
@@ -78,7 +78,7 @@ void render() {
       }
     }
   }
-  FastLed.show();
+  FastLED.show();
   shift(current_state.board);
 
   fast_index = 0;

@@ -5,7 +5,7 @@
 
 #include <Queue.h>
 #include <string.h>
-#include <unordered_map.h>
+#include <CharMap.h>
 
 #include <Arduino.h>
 
@@ -13,8 +13,7 @@
 
 //------ GLOBALS -----------------------------------------------------------------------------------------------------
 
-// matrix specs
-const int no_rows = 8; // SHOULD NOT BE MORE THAN 10 [Writing Lib Will Fail]
+// matrix specs const int no_rows = 8; // SHOULD NOT BE MORE THAN 10 [Writing Lib Will Fail]
 const int no_columns = 28;
 
 // colours
@@ -31,8 +30,8 @@ enum Processes {
 struct State {
     Colours board[no_rows][no_columns];
     Processes current_process;
-    std::Queue<std::string> instructions;
-    std::string current_instruction;
+    Queue<String> instructions;
+    String current_instruction;
     int instruction_index;
 };
 
@@ -47,10 +46,10 @@ class Writer {
         Writer(State &in_state);
 
         // write animation
-        void write(std::string in_string);
+        void write(String in_string);
 
         // space (between letters)
-        void add_space(int no, std::string &in_string);
+        void add_space(int no, String &in_string);
 
 
     private:
@@ -59,7 +58,7 @@ class Writer {
         
         // variables
         State &current_state;
-        std::string sample_string;
+        String sample_string;
         int letter_width;
         int temp;
         int middle;
@@ -70,7 +69,7 @@ class Writer {
         int constraint;
         
         // letter-mappings (column wise operations)
-        std::unordered_map<char, std::string> letter_map;
+        CharMap letter_map;
 };
 
 //------ WRITING -----------------------------------------------------------------------------------------------------
