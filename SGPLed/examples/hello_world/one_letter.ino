@@ -1,6 +1,6 @@
 #include <FastLED.h>
 
-#define DELAY 30
+#define DELAY 100
 #define LED_PIN 7
 #define LED_BRAND WS2812B
 
@@ -48,6 +48,8 @@ void draw() {
       for (int col = no_columns - 1; col > -1; col--) {
         if (local[row][col] == Colours::Red) {
           strip[fast_index] = CRGB::Red;
+        } else {
+            strip[fast_index] = CRGB::Black;
         }
         fast_index += 1;
         orientation = Right;
@@ -57,6 +59,8 @@ void draw() {
       for (int col = 0; col < no_columns; col++) {
         if (local[row][col] == Colours::Red) {
           strip[fast_index] = CRGB::Red;
+        } else {
+            strip[fast_index] = CRGB::Black;
         }
         fast_index += 1;
         orientation = Left;
