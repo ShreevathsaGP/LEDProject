@@ -15,6 +15,12 @@ enum Colours {
     Black, Red
 };
 
+// GLOBALS
+CRGB strip[(no_columns * no_rows)];
+int fast_index = 0;
+int local[no_rows][no_columns];
+Orientation orientation;
+Colour temp;
 
 // shift board
 void shift(const Colours matrix[no_rows][no_columns]) {
@@ -29,12 +35,6 @@ void shift(const Colours matrix[no_rows][no_columns]) {
     matrix[j][no_columns - 1] = Black;
   }
 }
-
-// GLOBALS
-CRGB strip[(no_columns * no_rows)];
-int fast_index = 0;
-int local[no_rows][no_columns];
-Orientation orientation;
 
 // draw the matrix [in actual LED]
 void draw() {
