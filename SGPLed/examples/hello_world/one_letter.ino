@@ -86,6 +86,7 @@ void setup() {
 }
 
 void loop() {
+    current_time = millis();
     if (current_time - previous_time > DELAY) {
         previous_time = current_time;
         draw();
