@@ -1,5 +1,6 @@
 #include <FastLED.h>
 
+#define DELAY 30
 #define LED_PIN 7
 #define LED_BRAND WS2812B
 
@@ -18,9 +19,11 @@ enum Colours {
 // GLOBALS
 CRGB strip[(no_columns * no_rows)];
 int fast_index = 0;
-int local[no_rows][no_columns];
+Colours local[no_rows][no_columns];
 Orientation orientation;
 Colour temp;
+unsigned long current_time = 0;
+unsigned long previous_time = 0;
 
 // shift board
 void shift(const Colours matrix[no_rows][no_columns]) {
@@ -83,6 +86,9 @@ void setup() {
 }
 
 void loop() {
-    draw();
-    shift(local);
+    if (current_time - previous_time > DELAY) {
+        previous_time = current_time;
+        draw();
+        shift(local);
+    }
 }
