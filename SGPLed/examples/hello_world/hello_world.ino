@@ -42,7 +42,7 @@ void shift(Colours matrix[no_rows][no_columns]) {
 //------ ARDUINO -----------------------------------------------------------------------------------------------------
 
 // show matrix [in serial output]
-void show(Colours matrix[no_rows][no_columns]) {
+void show(const Colours matrix[no_rows][no_columns]) {
   for (int i = 0; i < no_rows; i++) {
     Serial.print("[ ");
     for (int j = 0; j < no_columns; j++) {
@@ -52,10 +52,11 @@ void show(Colours matrix[no_rows][no_columns]) {
     Serial.print("]");
     Serial.print("\n");
   }
+  Serial.print("\n");
 }
 
-// render the matrix [in actual LED]
-void render() {
+// draw the matrix [in actual LED]
+void draw() {
   orientation = Left;
   for (int row = 0; row < no_rows; row++) {
     if (orientation == Left) {
@@ -79,8 +80,13 @@ void render() {
     }
   }
   FastLED.show();
-  shift(current_state.board);
+}
 
+// render the matrix [in actual LED]
+void render() {
+  draw();
+  /* show(current_state.board); */
+  shift(current_state.board);
   fast_index = 0;
 }
 
@@ -94,7 +100,7 @@ void setup() {
   // ARDUINO
 
   current_state.instruction_index = 0;
-  current_state.current_instruction.clear();
+  current_state.current_instruction = "";
   writer.write("HELLO WORLD");
 }
 
@@ -103,8 +109,8 @@ void loop() {
   if (current_time - previous_time > DELAY) {
     previous_time = current_time; 
     // check for instruction update 
-    if (current_state.instruction_index > (int)current_state.current_instruction.count() - 1) {
-      if (current_state.instructions.empty()) {
+    if (current_state.instruction_index > current_state.current_instruction.length() - 1) {
+      if (current_state.instructions.count() == 0) {
         return;
       }
       current_state.instruction_index = 0;
@@ -113,7 +119,7 @@ void loop() {
     }
 
     // execute the instructions
-    for (int i = current_state.instruction_index; i < current_state.current_instruction.count(); i++) {
+    for (int i = current_state.instruction_index; i < current_state.current_instruction.length(); i++) {
       current_state.instruction_index += 1;
       if (current_state.current_instruction[i] == ' ') {break;}
       current_state.board[(current_state.current_instruction[i]) - '0'][no_columns - 1] = Colours::Red;

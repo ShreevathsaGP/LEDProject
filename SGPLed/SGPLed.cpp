@@ -7,7 +7,7 @@ Writer::Writer(State &in_state): current_state(in_state) {
     init_mappings(); 
 }
 
-void Writer::add_space(int no, string &in_string) {
+void Writer::add_space(int no, String &in_string) {
     for (int _ = 0; _ < no; _++) {
         in_string += ' ';
     }
@@ -30,16 +30,16 @@ bool Writer::init_mappings() {
     // A
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 2); i++) {
         sample_string += '1';
-        sample_string += to_string((no_rows / 2));
+        sample_string += String((no_rows / 2));
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['a'] = sample_string;
@@ -47,19 +47,19 @@ bool Writer::init_mappings() {
     // B
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
 
     for (int _ = 0; _ < (letter_width - 2); _++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows / 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
 
     for (int i = 2; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['b'] = sample_string;
@@ -67,31 +67,31 @@ bool Writer::init_mappings() {
     // C
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 1); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
-    sample_string = sample_string.substr(0, sample_string.size() - 1);
+    sample_string.remove(sample_string.length() - 1);
     add_space(NO_SPACES, sample_string);
     letter_map['c'] = sample_string;
 
     // D
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 2); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = 2; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['d'] = sample_string;
@@ -99,54 +99,54 @@ bool Writer::init_mappings() {
     // E
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 1); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows / 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
-    sample_string = sample_string.substr(0, sample_string.size() - 1);
+    sample_string.remove(sample_string.length() - 1);
     add_space(NO_SPACES, sample_string);
     letter_map['e'] = sample_string;
 
     // F
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 1); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
+        sample_string += String(no_rows / 2);
         sample_string += ' ';
     }
-    sample_string = sample_string.substr(0, sample_string.size() - 1);
+    sample_string.remove(sample_string.length() - 1);
     add_space(NO_SPACES, sample_string);
     letter_map['f'] = sample_string;
     
     // G
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width / 2) / 2; i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = 0; i < (letter_width - ((letter_width / 2) / 2) - 2); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows / 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     sample_string += '1';
     for (int i = (no_rows / 2); i < no_rows - 1; i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     } 
     add_space(NO_SPACES, sample_string);
     letter_map['g'] = sample_string;
@@ -154,15 +154,15 @@ bool Writer::init_mappings() {
     // H
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 2); i++) {
-        sample_string += to_string(no_rows / 2);
+        sample_string += String(no_rows / 2);
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['h'] = sample_string;
@@ -171,19 +171,19 @@ bool Writer::init_mappings() {
     sample_string = "";
     for (int i = 0; i < (letter_width - 1) / 2; i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - ((letter_width - 1) / 2)) - 1; i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
-    sample_string = sample_string.substr(0, sample_string.size() - 1);
+    sample_string.remove(sample_string.length() - 1);
     add_space(NO_SPACES, sample_string);
     letter_map['i'] = sample_string;
 
@@ -191,39 +191,39 @@ bool Writer::init_mappings() {
     sample_string = "";
     for (int i = 0; i < (letter_width - 1) / 2; i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - ((letter_width - 1) / 2)) - 1; i++) {
         sample_string += '1';
         sample_string += ' ';
     }
-    sample_string = sample_string.substr(0, sample_string.size() - 1);
+    sample_string.remove(sample_string.length() - 1);
     add_space(NO_SPACES, sample_string);
     letter_map['j'] = sample_string;
 
     // K
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int _ = 0; _ < (letter_width - 3); _++) {
-        sample_string += to_string(no_rows / 2);
+        sample_string += String(no_rows / 2);
         sample_string += ' ';
     }
 
-    sample_string += to_string((no_rows / 2) - 1);
-    sample_string += to_string((no_rows / 2) + 1);
+    sample_string += String((no_rows / 2) - 1);
+    sample_string += String((no_rows / 2) + 1);
     sample_string += ' ';
 
     for (int i = 1; i < (no_rows - 1); i++) {
         if (i != (no_rows /2) && i != (no_rows /2) + 1 && i != (no_rows/2) - 1) {
-            sample_string += to_string(i);
+            sample_string += String(i);
         }
     }
     add_space(NO_SPACES, sample_string);
@@ -232,14 +232,14 @@ bool Writer::init_mappings() {
     // L
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int _ = 0; _ < (letter_width - 1); _++) {
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
-    sample_string = sample_string.substr(0, sample_string.size() - 1);
+    sample_string.remove(sample_string.length() - 1);
     add_space(NO_SPACES, sample_string);
     letter_map['l'] = sample_string;
 
@@ -248,47 +248,47 @@ bool Writer::init_mappings() {
     temp = 2;
     no_flat = 0;
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     middle = (letter_width - 2);
     if (middle % 2 == 0) {
         for (int i = 0; i < (middle / 2); i++) {
-            sample_string += to_string(temp);   
+            sample_string += String(temp);   
             sample_string += ' ';
             if (temp < (no_rows / 2)) {temp += 1;} else {no_flat += 1;}
         }
         for (int i = 0; i < no_flat; i++) {
-            sample_string += to_string(no_rows / 2);
+            sample_string += String(no_rows / 2);
             sample_string += ' ';
         }
         temp -= 1;
         for (int i = 0; i < (middle / 2) - no_flat; i++) {
-            sample_string += to_string(temp);
+            sample_string += String(temp);
             sample_string += ' ';
             if (temp > 1) {temp -= 1;}
         }
     } else {
         for (int i = 0; i < (middle / 2); i++) {
-            sample_string += to_string(temp);   
+            sample_string += String(temp);   
             sample_string += ' ';
             if (temp < (no_rows / 2)) {temp += 1;} else {no_flat += 1;}
         }
-        sample_string += to_string(temp);
+        sample_string += String(temp);
         temp -= 1;
         sample_string += ' ';
         for (int i = 0; i < no_flat; i++) {
-            sample_string += to_string(no_rows / 2);
+            sample_string += String(no_rows / 2);
             sample_string += ' ';
         }
         for (int i = 0; i < (middle / 2) - no_flat; i++) {
-            sample_string += to_string(temp);
+            sample_string += String(temp);
             sample_string += ' ';
             if (temp > 1) {temp -= 1;}
         }
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['m'] = sample_string;
@@ -297,16 +297,16 @@ bool Writer::init_mappings() {
     sample_string = "";
     temp = 2;
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 2); i++) {
-        sample_string += to_string(temp);
+        sample_string += String(temp);
         sample_string += ' ';
         if (temp < (no_rows - 2)) {temp += 1;}
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['n'] = sample_string;
@@ -314,16 +314,16 @@ bool Writer::init_mappings() {
     // O
     sample_string = "";
     for (int i = 2; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < letter_width - 2; i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = 2; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['o'] = sample_string;
@@ -331,16 +331,16 @@ bool Writer::init_mappings() {
     // P
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < letter_width - 2; i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
+        sample_string += String(no_rows / 2);
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows / 2) + 1; i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['p'] = sample_string;
@@ -348,42 +348,42 @@ bool Writer::init_mappings() {
     // Q
     sample_string = "";
     for (int i = 2; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 4); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     sample_string += '1';
-    sample_string += to_string(no_rows - 4);
-    sample_string += to_string(no_rows - 2);
+    sample_string += String(no_rows - 4);
+    sample_string += String(no_rows - 2);
     sample_string += ' ';
     sample_string += '1';
-    sample_string += to_string(no_rows - 3);
+    sample_string += String(no_rows - 3);
     sample_string += ' ';
     for (int i = 2; i < (no_rows - 3); i++) {
-        sample_string += to_string(i); 
+        sample_string += String(i); 
     }
-    sample_string += to_string(no_rows - 2);
+    sample_string += String(no_rows - 2);
     add_space(NO_SPACES, sample_string);
     letter_map['q'] = sample_string;
 
     // R
     sample_string = "";
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int _ = 0; _ < (letter_width - 2); _++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
+        sample_string += String(no_rows / 2);
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 1); i++) {
         if (i != (no_rows /2)) {
-            sample_string += to_string(i);
+            sample_string += String(i);
         }
     }
     add_space(NO_SPACES, sample_string);
@@ -392,18 +392,18 @@ bool Writer::init_mappings() {
     // S
     sample_string = "";
     for (int i = 2; i < (no_rows / 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
-    sample_string += to_string(no_rows - 2);
+    sample_string += String(no_rows - 2);
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 2); i++) {
         sample_string += '1';
-        sample_string += to_string(no_rows / 2);
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows / 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = no_rows - 3; i > (no_rows / 2); i--) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += '1';
     add_space(NO_SPACES, sample_string);
@@ -416,7 +416,7 @@ bool Writer::init_mappings() {
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < ((letter_width - 1) - (letter_width / 2)); i++) {
@@ -429,15 +429,15 @@ bool Writer::init_mappings() {
     // U
     sample_string = "";
     for (int i = 1; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 2); i++) {
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
     for (int i = 1; i < (no_rows - 2); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['u'] = sample_string;
@@ -445,19 +445,19 @@ bool Writer::init_mappings() {
     // V
     sample_string = "";
     for (int i = 1; i < (no_rows - 3); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
-    sample_string += to_string(no_rows - 3);
+    sample_string += String(no_rows - 3);
     sample_string += ' ';
     for (int i = 0; i < (letter_width - 4); i++) {
-        sample_string += to_string(no_rows - 2);
+        sample_string += String(no_rows - 2);
         sample_string += ' ';
     }
-    sample_string += to_string(no_rows - 3);
+    sample_string += String(no_rows - 3);
     sample_string += ' ';
     for (int i = 1; i < (no_rows - 3); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
 
     add_space(NO_SPACES, sample_string);
@@ -468,43 +468,43 @@ bool Writer::init_mappings() {
     temp = (no_rows - 3);
     no_flat = 0;
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     sample_string += ' ';
     middle = (letter_width - 2);
     if (middle % 2 == 0) {
         for (int i = 0; i < (middle / 2); i++) {
-            sample_string += to_string(temp);
+            sample_string += String(temp);
             sample_string += ' ';
             if (temp > (no_rows / 2)) {temp -= 1;} else {no_flat += 1;}
         }
         for (int i = 0; i < no_flat; i++) {
-            sample_string += to_string(no_rows / 2);
+            sample_string += String(no_rows / 2);
             sample_string += ' ';
         }
         temp += 1;
         for (int i = 0; i < (middle / 2) - no_flat; i++) {
-            sample_string += to_string(temp);
+            sample_string += String(temp);
             sample_string += ' ';
             if (temp < (no_rows - 2)) {temp += 1;}
         }
     } else {
         for (int i = 0; i < (middle / 2); i++) {
-            sample_string += to_string(temp);
+            sample_string += String(temp);
             sample_string += ' ';
             if (temp > (no_rows / 2)) {temp -= 1;} else {no_flat += 1;}
         }
-        sample_string += to_string(temp);
+        sample_string += String(temp);
         temp += 1;
         sample_string += ' ';
         for (int i = 0; i < (middle / 2) - no_flat; i++) {
-            sample_string += to_string(temp);
+            sample_string += String(temp);
             sample_string += ' ';
             if (temp < (no_rows - 2)) {temp += 1;} 
         }
     }
     for (int i = 1; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     add_space(NO_SPACES, sample_string);
     letter_map['w'] = sample_string;
@@ -517,21 +517,21 @@ bool Writer::init_mappings() {
     for (int i = 0; i < letter_width; i++) {
         if (i == 0) {
             for (int i = 1; i < top; i++) {
-                sample_string += to_string(i);
+                sample_string += String(i);
             }
             for (int i = no_rows - 2; i > bottom; i--) {
-                sample_string += to_string(i);
+                sample_string += String(i);
             }
         } else if (i == (letter_width - 1)) {
             for (int i = 1; i < bottom; i++) {
-                sample_string += to_string(i);
+                sample_string += String(i);
             }
             for (int i = no_rows - 2; i > top; i--) {
-                sample_string += to_string(i);
+                sample_string += String(i);
             }
         }
-        sample_string += to_string(top);
-        sample_string += to_string(bottom);
+        sample_string += String(top);
+        sample_string += String(bottom);
         sample_string += ' ';
         top += 1;
         bottom -= 1;
@@ -546,21 +546,21 @@ bool Writer::init_mappings() {
     middle = letter_width;
     if (letter_width % 2 == 0) {middle += 1;}
     for (int i = 0; i < (middle / 2); i++) {
-        sample_string += to_string(temp);   
+        sample_string += String(temp);   
         sample_string += ' ';
         if (temp < (no_rows / 2)) {temp += 1;} else {no_flat += 1;}
     }
     for (int i = temp; i < (no_rows - 1); i++) {
-        sample_string += to_string(i);
+        sample_string += String(i);
     }
     temp -= 1;
     sample_string += ' ';
     for (int i = 0; i < no_flat; i++) {
-        sample_string += to_string(no_rows / 2);
+        sample_string += String(no_rows / 2);
         sample_string += ' ';
     }
     for (int i = 0; i < (middle / 2) - no_flat; i++) {
-        sample_string += to_string(temp);
+        sample_string += String(temp);
         sample_string += ' ';
         if (temp > 1) {temp -= 1;}
     }
@@ -574,7 +574,7 @@ bool Writer::init_mappings() {
 }
 
 // write animation
-void Writer::write(string in_string) {
+void Writer::write(String in_string) {
     // reset board
     current_state.current_process = Writing;
     for (int i = 0; i < no_rows; i++) {
