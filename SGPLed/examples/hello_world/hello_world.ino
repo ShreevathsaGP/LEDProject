@@ -101,6 +101,7 @@ void setup() {
 
   current_state.instruction_index = 0;
   current_state.current_instruction = "";
+  Serial.print("Program Starting");
   writer.write("HELLO WORLD");
 }
 

@@ -3,6 +3,7 @@
 
 #define NO_ASCII 75
 #include <string.h>
+#include <Arduino.h>
 
 class CharMap {
     public:
