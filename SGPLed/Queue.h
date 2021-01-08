@@ -10,7 +10,7 @@ class Queue {
     T *_data;
     int _maxitems;
   public:
-    Queue(int maxitems = 256) { 
+    Queue(int maxitems = 5) { 
       _front = 0;
       _back = 0;
       _count = 0;
