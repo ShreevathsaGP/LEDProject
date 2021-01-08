@@ -2,8 +2,8 @@
 #define CharMap_H
 
 #define NO_ASCII 75
-#include <string.h>
 #include <Arduino.h>
+#include <string.h>
 
 class CharMap {
     public:
