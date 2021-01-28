@@ -7,4 +7,5 @@ bin/*
 
 # ignore Mac files
 .DS_Store
+__pycache__/
 
