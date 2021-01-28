@@ -24,6 +24,7 @@ void shift(Colours matrix[no_rows][no_columns]) {
 //------ BOARD ----------------------------------
 //------ CPP ------------------------------------
 bool running = true;
+
 void show(const Colours matrix[no_rows][no_columns]) {
     for (int i = 0; i < no_rows; i++) {
         cout << "[ ";
@@ -33,6 +34,7 @@ void show(const Colours matrix[no_rows][no_columns]) {
         cout << "]" << endl;
     }
 }
+
 void render(State &current_state) {
     show(current_state.board);
     cout << endl;
