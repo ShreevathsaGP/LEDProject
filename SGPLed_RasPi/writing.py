@@ -3,7 +3,7 @@ from collections import defaultdict
 from queue import Queue
 from enum import Enum
 
-from glob import *
+from globy import *
 
 # writer class
 class Writer:
